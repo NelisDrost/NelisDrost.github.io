@@ -43,9 +43,13 @@ void draw() {
       for (int i = 0; i < 4; i++) 
         block[i].y ++;
         checkBlockStopped();
-     
-   }
-  
+   } 
+   if (lost) {
+     textAlign(CENTER, CENTER);
+     fill(0,255);
+     text("GAME OVER", width/2, height/2);
+     textAlign(LEFT, BOTTOM);
+   }  
   
    stroke(255,255);
    strokeWeight(2);
@@ -149,8 +153,6 @@ void checkBlockStopped() {
     score += 5;
     checkLinesComplete();
     if (checkLost()) {
-       textAlign(CENTER, CENTER);
-       text("GAME OVER", width/2, height/2);
        return;
     }
     else
